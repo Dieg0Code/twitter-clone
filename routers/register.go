@@ -29,7 +29,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_, finded, _ := db.CheckIfUserExists(usr.Email)
-	if finded == true {
+	if finded {
 		http.Error(w, "El usuario ya existe", 400)
 		return
 	}
@@ -40,7 +40,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if status == false {
+	if !status {
 		http.Error(w, "No se ha logrado insertar el registro de usuario", 400)
 		return
 	}
