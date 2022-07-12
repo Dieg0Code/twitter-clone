@@ -10,7 +10,7 @@ import (
 
 //MongoCN is a global variable that stores our MongoDB connection
 var MongoCN = ConnectDB()
-var clientOptions = options.Client().ApplyURI("mongodb+srv://dieg0code:<password>@cluster0.yhvu9.mongodb.net/?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://dieg0code:m0ng0dbn0sql@cluster0.yhvu9.mongodb.net/?retryWrites=true&w=majority")
 
 /*
 	Un contexto (context) es un espacio en memoria
