@@ -5,6 +5,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// LoginTry veriies email and password and returns the user if it exists
 func LoginTry(email string, password string) (models.User, bool) {
 	usr, finded, _ := CheckIfUserExists(email)
 	if !finded {

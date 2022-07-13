@@ -11,12 +11,13 @@ import (
 	"github.com/rs/cors"
 )
 
-// Handler set the port and start to listen
+// Handler set the port and start to listen and handle requests
 func Handlers() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
 	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
+	// router.HandleFunc("/get-profile", middlew.CheckDB(middlew.ValidateJWT(routers.GetProfile))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

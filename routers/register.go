@@ -34,7 +34,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, status, err := db.InserRegister(usr)
+	_, status, err := db.InsertRegister(usr)
 	if err != nil {
 		http.Error(w, "Error al registrar el usuario "+err.Error(), 400)
 		return

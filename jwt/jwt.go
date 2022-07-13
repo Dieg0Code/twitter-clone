@@ -7,6 +7,7 @@ import (
 	"github.com/dieg0code/twitter-clone/models"
 )
 
+// GenerateJWT generates a JWT token
 func GenerateJWT(usr models.User) (string, error) {
 	myKey := []byte("mySecretKey")
 

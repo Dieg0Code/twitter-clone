@@ -8,8 +8,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-//InsertRegister insert a new user into the database
-func InserRegister(usr models.User) (string, bool, error) {
+//InsertRegister insert a new user into the database @returns a id, a boolean for status and an error
+func InsertRegister(usr models.User) (string, bool, error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()

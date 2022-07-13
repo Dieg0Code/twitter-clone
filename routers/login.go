@@ -10,6 +10,7 @@ import (
 	"github.com/dieg0code/twitter-clone/models"
 )
 
+// Login is the router for the login endpoint
 func Login(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("content-type", "application/json")
 
