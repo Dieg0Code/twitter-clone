@@ -2,7 +2,6 @@ package routers
 
 import (
 	"errors"
-	"strings"
 
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/dieg0code/twitter-clone/db"
@@ -20,12 +19,12 @@ func ProcessToken(token string) (*models.Claim, bool, string, error) {
 	myKey := []byte("mySecretKey")
 	claims := &models.Claim{}
 
-	splitToken := strings.Split(token, "Bearer")
-	if len(splitToken) != 2 {
-		return claims, false, string(""), errors.New("formato de token invalido")
-	}
+	// splitToken := strings.Split(token, "Bearer")
+	// if len(splitToken) != 2 {
+	// 	return claims, false, string(""), errors.New("formato de token invalido")
+	// }
 
-	token = strings.TrimSpace(splitToken[1])
+	// token = strings.TrimSpace(splitToken[1])
 
 	tkn, err := jwt.ParseWithClaims(token, claims, func(t *jwt.Token) (interface{}, error) {
 		return myKey, nil
@@ -34,6 +33,7 @@ func ProcessToken(token string) (*models.Claim, bool, string, error) {
 		_, finded, _ := db.CheckIfUserExists(claims.Email)
 		if finded {
 			Email = claims.Email
+			// fmt.Println(Email)
 			UserID = claims.ID.Hex()
 		}
 		return claims, finded, UserID, nil

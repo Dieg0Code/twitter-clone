@@ -8,18 +8,18 @@ import (
 )
 
 // GenerateJWT generates a JWT token
-func GenerateJWT(usr models.User) (string, error) {
+func GenerateJWT(u models.User) (string, error) {
 	myKey := []byte("mySecretKey")
 
 	payload := jwt.MapClaims{
-		"email":     usr.Email,
-		"name":      usr.Name,
-		"lastname":  usr.LastName,
-		"birthDate": usr.BirthDate,
-		"bio":       usr.Bio,
-		"location":  usr.Location,
-		"webSite":   usr.WebSite,
-		"_id":       usr.ID.Hex(),
+		"email":     u.Email,
+		"name":      u.Name,
+		"lastname":  u.LastName,
+		"birthDate": u.BirthDate,
+		"bio":       u.Bio,
+		"location":  u.Location,
+		"webSite":   u.WebSite,
+		"_id":       u.ID.Hex(),
 		"exp":       time.Now().Add(time.Hour * 24).Unix(),
 	}
 
