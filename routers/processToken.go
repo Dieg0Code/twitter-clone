@@ -14,7 +14,7 @@ var Email string
 // UserID is the ID returned by the model, used in every endpoint
 var UserID string
 
-// ProcessToken process the token to get the data
+// ProcessToken process the token to get the data contained in it
 func ProcessToken(token string) (*models.Claim, bool, string, error) {
 	myKey := []byte("mySecretKey")
 	claims := &models.Claim{}
